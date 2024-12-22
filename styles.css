@@ -1,0 +1,50 @@
+/* Set up a basic reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+}
+
+/* Hide the default cursor globally */
+body {
+    cursor: none;
+    background-image: url('bg.png'); /* Replace with your image path */
+    background-repeat: repeat; /* Ensures the background repeats */
+    background-size: auto; /* Adjust to your preference (auto keeps original size) */
+    background-position: top left; /* Position it at the top-left corner */
+}
+
+/* Create a custom cursor */
+.cursor {
+    position: absolute;
+    width: 32px; /* Width of the cursor */
+    height: 32px; /* Height of the cursor */
+    background-image: url('cursor.png'); /* Your custom cursor image */
+    background-size: cover; /* Ensure the image fills the cursor */
+    pointer-events: none; /* Prevent the cursor from interacting with other elements */
+    transition: transform 0.1s ease; /* Smooth transition for the cursor position */
+}
+
+/* Define the hue-rotate animation */
+@keyframes hue-rotate-animation {
+    0% {
+        filter: hue-rotate(0deg); /* Starting with no hue shift */
+    }
+    100% {
+        filter: hue-rotate(360deg); /* Full hue rotation */
+    }
+}
+
+/* Apply the hue-rotate animation to the custom cursor */
+.cursor {
+    animation: hue-rotate-animation 5s linear infinite; /* Animation over 10 seconds, looping */
+}
+
+.content {
+    text-align: center;
+    padding: 50px;
+}
